@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.graduateproject.mapper.LoginMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.graduateproject.entity.Login">
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+<!--    <select id="selectAll"  parameterType="String" resultMap="BaseResultMap">-->
+<!--            select * from login where email = "sharita.rolfson@yahoo.com";-->
+<!--    </select>-->
+
+    <insert id="insertUser">
+        INSERT INTO graduate.login (email, password)
+        VALUES ('66666', 'hahahahahahhaha');
+    </insert>
+
+<!--    <sql id="Base_Column_List">-->
+<!--        email,password-->
+<!--    </sql>-->
+</mapper>
