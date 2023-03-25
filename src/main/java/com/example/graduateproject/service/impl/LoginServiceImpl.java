@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.graduateproject.entity.Login;
 import com.example.graduateproject.mapper.LoginMapper;
 import com.example.graduateproject.service.LoginService;
+import com.example.graduateproject.util.MD5;
 import com.example.graduateproject.util.Result;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -25,27 +26,20 @@ implements LoginService{
 
     @Override
     public Result<Login> login(String email, String password) {
-        //1、校验信息
+
         if(StringUtils.isEmpty(email)||StringUtils.isEmpty(password)){
             return Result.fail();
         }
-        //2、根据条件进行查询
 
-        //LambdaQueryWrapper<Login> queryWrapper = new LambdaQueryWrapper<>();
-//        try {
-//            loginMapper.insertUser();
-//        }catch (Exception e){
-//            log.debug("so 奇怪");
-//            System.out.println(e);
-//        }
-
+        //对密码进行加密
         QueryWrapper<Login> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("email",email);
-        queryWrapper.eq("password",password);
-        Login user = baseMapper.selectOne(queryWrapper);
-        System.out.println(user.toString());
+        queryWrapper.eq("password", MD5.encrypt(password));
 
-//        3、判断查询条件
+        Login user = baseMapper.selectOne(queryWrapper);
+
+
+        //  3、判断查询条件
         if (user!=null){
             return Result.ok(user);
         }else {
@@ -54,8 +48,5 @@ implements LoginService{
 
     }
 
-    @Override
-    public void findAll() {
-        System.out.println(baseMapper.selectList(null));
-    }
+
 }

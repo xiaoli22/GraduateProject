@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.graduateproject.mapper.TransactionsMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.graduateproject.entity.Transactions">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="OTHER"/>
+            <result property="category" column="category" jdbcType="VARCHAR"/>
+            <result property="account" column="account" jdbcType="VARCHAR"/>
+            <result property="time" column="time" jdbcType="TIMESTAMP"/>
+            <result property="operator" column="operator" jdbcType="VARCHAR"/>
+            <result property="project" column="project" jdbcType="VARCHAR"/>
+            <result property="merchant" column="merchant" jdbcType="VARCHAR"/>
+            <result property="notes" column="notes" jdbcType="VARCHAR"/>
+            <result property="transferAccount" column="transfer_account" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="bookId" column="book_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,category,
+        account,time,operator,
+        project,merchant,notes,
+        transfer_account,amount,book_id
+    </sql>
+</mapper>

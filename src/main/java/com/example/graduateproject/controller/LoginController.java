@@ -24,13 +24,11 @@ public class LoginController {
     @PostMapping("/login")
     public Result<Login> login(String email,String password){
         log.info("user login");
-        Result<Login> lo = loginService.login(email, password);
-        return lo;
+        return loginService.login(email, password);
     }
 
-    @RequestMapping("/findAll")
-    public void find(){
-        log.info("user findAll");
-        loginService.findAll();
-    }
+    @PostMapping("/register")
+    public Result<>
+
+
 }

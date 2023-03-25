@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.example.graduateproject.mapper")
-//@ComponentScan("com.example")
 public class GraduateProjectApplication {
 
     public static void main(String[] args) {
